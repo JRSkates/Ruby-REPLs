@@ -1,5 +1,5 @@
-#def six_sided_dice 
-#  rand(6)
-#end
+def six_sided_dice 
+  rand(6)
+end
 
-puts rand(6)
+puts six_sided_dice
