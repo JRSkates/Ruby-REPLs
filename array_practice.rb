@@ -1,54 +1,52 @@
 river = "--P--,--C--,CC-CC,CC-CC"
-riv_array = river.split(",")
-nested_arr = Array.new(4) { [] }
-counter = 0
+river_arr = river.split(",")
 
-while true do
-  if counter < 4
-    nested_arr[counter] << riv_array[counter]
-    counter += 1
-  else
-    break
-  end
-end
-
-riv_p_1 = nested_arr[0][0]
-riv_p_2 = nested_arr[1][0]
-riv_p_3 = nested_arr[2][0]
-riv_p_4 = nested_arr[3][0]
+riv_p_1 = river_arr[0]
+riv_p_2 = river_arr[1]
+riv_p_3 = river_arr[2]
+riv_p_4 = river_arr[3]
 player_index = 2
 game_counter = 1
 player = "P"
-you_win = false
 
-puts nested_arr
+puts river_arr
 puts "Type left right or neither"
 
 while true do
   user = gets.chomp
-  if you_win == true
-    puts "You survived!"
-    break
-  elsif user == "left" && game_counter == 1
-    riv_p_1[player_index] = "-"
-    riv_p_2[player_index - 1] = player
-    game_counter += 1
-    player_index -= 1
-    puts nested_arr
-    puts "Type left right or neither"
+  if user == "left" && game_counter == 1
+    if riv_p_2[player_index - 1] == "C"
+      puts "You were eaten"
+      break
+    else
+      riv_p_1[player_index] = "-"
+      riv_p_2[player_index - 1] = player
+      game_counter += 1
+      player_index -= 1
+      puts river_arr
+      puts "Type left right or neither"
+    end
   elsif user == "right" && game_counter == 1
-    riv_p_1[player_index] = "-"
-    riv_p_2[player_index + 1] = player
-    game_counter += 1
-    player_index += 1
-    puts nested_arr
-    puts "Type left right or neither"
+    if riv_p_2[player_index + 1] == "C"
+      puts "You were eaten"
+      break
+    else
+      riv_p_1[player_index] = "-"
+      riv_p_2[player_index + 1] = player
+      game_counter += 1
+      player_index += 1
+      puts river_arr
+      puts "Type left right or neither"
+    end
   elsif user == "neither" && game_counter == 1
     if riv_p_2[player_index] == "C"
       puts "You were eaten"
       break
     else
-      puts "how are you here"
+      riv_p_1[player_index] = "-"
+      riv_p_2[player_index] = player
+      game_counter += 1
+      puts river_arr
     end
   elsif user == "left" && game_counter == 2
     if riv_p_3[player_index - 1] == "C"
@@ -59,7 +57,7 @@ while true do
       riv_p_3[player_index - 1] = player
       game_counter += 1
       player_index -= 1
-      puts nested_arr
+      puts river_arr
     end
   elsif user == "right" && game_counter == 2
     if riv_p_3[player_index + 1] == "C"
@@ -70,7 +68,7 @@ while true do
       riv_p_3[player_index + 1] = player
       game_counter += 1
       player_index += 1
-      puts nested_arr
+      puts river_arr
     end
   elsif user == "neither" && game_counter == 2
     if riv_p_3[player_index] == "C"
@@ -80,7 +78,7 @@ while true do
       riv_p_2[player_index] = "-"
       riv_p_3[player_index] = player
       game_counter += 1
-      puts nested_arr
+      puts river_arr
     end
   elsif user == "left" && game_counter == 3
     if riv_p_4[player_index - 1] == "C"
@@ -90,7 +88,7 @@ while true do
       riv_p_4[player_index - 1] = player
       game_counter += 1
       player_index -= 1
-      puts nested_arr
+      puts river_arr
       puts "You survived!"
     end
     break
@@ -102,7 +100,7 @@ while true do
       riv_p_4[player_index + 1] = player
       game_counter += 1
       player_index += 1
-      puts nested_arr
+      puts river_arr
       puts "You survived!"
     end
     break
@@ -113,7 +111,7 @@ while true do
       riv_p_3[player_index] = "-"
       riv_p_4[player_index] = player
       game_counter += 1
-      puts nested_arr
+      puts river_arr
       puts "You survived!"
     end
     break
