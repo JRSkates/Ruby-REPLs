@@ -1,37 +1,5 @@
-=begin
-puts "Enter Amount of Nested Arrays to create: "
-group_num = gets.chomp.to_i
-arr = Array.new(group_num) { [] }
-
-p arr
-#[[], [], []]
-
-nest1 = arr[0]
-
-p nest1
-#[]
-p nest1.class
-#Array
-
-counter = 0
-while true do
-  puts "Enter Data to store in Nested Array, or type QUIT to exit."
-  data = gets.chomp
-    if data == "QUIT"
-      break
-    else
-      p "You are storing #{data}"
-    end
-  puts "Enter which Nested Array you wish to store the Data in."
-  nest_arr_num = gets.chomp.to_i
-  arr[nest_arr_num - 1].push(data)
-  p arr
-end
-=end
-#user = gets.chomp
-river = "-----,--C--,CC-CC,CC-CC"
-p_river ="--P--,--C--,CC-CC,CC-CC"
-riv_array = p_river.split(",")
+river = "--P--,--C--,CC-CC,CC-CC"
+riv_array = river.split(",")
 nested_arr = Array.new(4) { [] }
 counter = 0
 
@@ -51,10 +19,7 @@ riv_p_4 = nested_arr[3][0]
 player_index = 2
 game_counter = 1
 player = "P"
-alive = true
 you_win = false
-
-#riv_p_2[2] = player
 
 puts nested_arr
 puts "Type left right or neither"
@@ -120,52 +85,73 @@ while true do
   elsif user == "left" && game_counter == 3
     if riv_p_4[player_index - 1] == "C"
       puts "You were eaten"
-      break
     else
       riv_p_3[player_index] = "-"
       riv_p_4[player_index - 1] = player
       game_counter += 1
       player_index -= 1
+      puts nested_arr
       puts "You survived!"
-      break
     end
+    break
   elsif user == "right" && game_counter == 3
     if riv_p_4[player_index + 1] == "C"
       puts "You were eaten"
-      break
     else
       riv_p_3[player_index] = "-"
       riv_p_4[player_index + 1] = player
       game_counter += 1
       player_index += 1
+      puts nested_arr
       puts "You survived!"
-      break
     end
+    break
   elsif user == "neither" && game_counter == 3
     if riv_p_4[player_index] == "C"
       puts "You were eaten"
-      break
     else
       riv_p_3[player_index] = "-"
       riv_p_4[player_index] = player
       game_counter += 1
+      puts nested_arr
       puts "You survived!"
-      break
     end
+    break
   elsif user == "q"
     puts "You were eaten"
     break
   end
 end
 
-#p riv_array
-#p player
-#p alive
-#puts nested_arr
-#p riv_p_1
-#p riv_p_2
-#p riv_p_3
-#p riv_p_4
 
+=begin
+puts "Enter Amount of Nested Arrays to create: "
+group_num = gets.chomp.to_i
+arr = Array.new(group_num) { [] }
 
+p arr
+#[[], [], []]
 
+nest1 = arr[0]
+
+p nest1
+#[]
+p nest1.class
+#Array
+
+counter = 0
+while true do
+  puts "Enter Data to store in Nested Array, or type QUIT to exit."
+  data = gets.chomp
+    if data == "QUIT"
+      break
+    else
+      p "You are storing #{data}"
+    end
+  puts "Enter which Nested Array you wish to store the Data in."
+  nest_arr_num = gets.chomp.to_i
+  arr[nest_arr_num - 1].push(data)
+  p arr
+end
+=end
+#user = gets.chomp
