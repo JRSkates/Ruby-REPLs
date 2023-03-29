@@ -56,7 +56,7 @@ group_num = gets.chomp.to_i
 
 arr = Array.new(group_num) { [] }
 
-puts "Enter a name"
+puts "Enter a name, and 'stop' when you are done"
 counter = 0
 while true do
   name = gets.chomp
@@ -70,15 +70,21 @@ while true do
   end
 end
 
-puts "Enter the number of a group to print out"
+puts "Enter the number of a group to print out, 'all' to see everyone or 'stop' to exit"
 
 while true do
   final = gets.chomp
   if final == "stop"
     break
+  elsif final == "all"
+    puts arr
+    puts "Enter the number of a group to print out, 'all' to see everyone or 'stop' to exit"
+  elsif final.to_i > group_num
+    puts "That group does not exist"
+    puts "Enter the number of a group to print out, 'all' to see everyone or 'stop' to exit"
   else 
     final = final.to_i
     puts arr[final - 1].join(", ")
-    puts "Enter the number of a group to print out"
+    puts "Enter the number of a group to print out, 'all' to see everyone or 'stop' to exit"
   end
 end

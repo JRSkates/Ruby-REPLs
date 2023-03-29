@@ -22,5 +22,4 @@
 puts "Enter a list of numbers, separated by a comma"
 user_input = gets.chomp
 
-arr = user_input.split(",").map { |x| x.to_i }
-arr.each { |num| puts "-" * num }
+user_input.split(",").map { |x| x.to_i }.each { |num| puts "-" * num }

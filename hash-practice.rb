@@ -5,6 +5,8 @@ dictionary = {
   }
 
 puts dictionary[:bear]
+keys = dictionary.each {|key, value| puts key }
+puts keys
 # a creature that fishes in the river for salmon.
 
 players = {
