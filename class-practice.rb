@@ -79,29 +79,3 @@ heathrow = Airport.new
 puts heathrow.hangar_report
 heathrow.land("plane1")
 puts heathrow.hangar_report
-
-class Todo
-  def initialize(item)
-    @item = item
-  end
-  
-  def text
-    return @item 
-  end
-end
-
-class TodoList
-  def initialize
-    @list = Array.new
-  end
-  
-  def add(object)
-    @list << Todo.new(object).text
-  end
-  
-  def print
-    @list.each do |x|
-      puts "* #{x.text}"
-    end
-  end
-end
