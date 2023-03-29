@@ -8,7 +8,7 @@ people = [
   { "name" => "Will", "sport" => "cycling", "fruit" => "blackberry" }
 ]
 
-puts "Enter category to group people by"
+puts "Enter category to group people by, 'sport' or 'fruit':"
 user_input = gets.chomp
 
 sorted_by_input = {}
