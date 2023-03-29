@@ -1,3 +1,6 @@
+# Playing around with the Chapter 10 To-Do List Class Challenge
+# added some extra elements and methods, looking to add user interaction
+
 class Todo
   def initialize(item)
     @item = item
@@ -74,13 +77,15 @@ first_list.name_your_list("FIRST LIST")
 first_list.add("get milk")
 first_list.add("go for a walk")
 first_list.show_list
-
+puts
 first_list.remove("get milk")
 first_list.add("make some dinner")
 first_list.show_list
-
+puts
 second_list = TodoList.new
 second_list.inspect
 second_list.show_list
 second_list.add("test")
 second_list.name_your_list("SECOND LIST")
+puts
+first_list.inspect
